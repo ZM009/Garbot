@@ -27,6 +27,8 @@ void setup() {
 
 void loop() { // BEFORE YOU START, PROP UP THE ROBOT OR HOLD IT BECAUSE IT WILL MOVE AFTER BRAKE COMMAND
 
+  // Code below is for testing the robot's navigation and to ensure the motors are wired to the motor controllers correctly.
+  
   Brake(); // starts brake
   delay(3000);
   Forward(); // moves forward
