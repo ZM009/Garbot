@@ -1,5 +1,5 @@
 // Yanked from my 425 Project, changes to pin values may be needed.
-#define relay_Pin 46   // defines pin for the relay
+// #define relay_Pin 46   // defines pin for the relay
 #define LMOTOR_IN1 3
 #define LMOTOR_IN2 4
 #define LMOTOR_IN3 7 // define pins, changes might be needed
