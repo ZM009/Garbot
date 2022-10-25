@@ -1,12 +1,12 @@
 // Yanked from my 425 Project, changes to pin values may be needed.
-#define LMOTOR_IN1 3
-#define LMOTOR_IN2 4
-#define LMOTOR_IN3 2 // define pins, changes might be needed
+#define LMOTOR_IN1 2
+#define LMOTOR_IN2 3
+#define LMOTOR_IN3 4 // define pins, changes might be needed
 #define LMOTOR_IN4 5
-#define RMOTOR_IN1 9
-#define RMOTOR_IN2 10
-#define RMOTOR_IN3 11
-#define RMOTOR_IN4 12
+#define RMOTOR_IN1 23
+#define RMOTOR_IN2 25
+#define RMOTOR_IN3 27
+#define RMOTOR_IN4 29
 
 
 void setup() {
@@ -28,19 +28,19 @@ void loop() { // BEFORE YOU START, PROP UP THE ROBOT OR HOLD IT BECAUSE IT WILL 
   Brake();
   delay(3000);
   Forward();
-  delay(1500);
+  delay(500);
   Brake();
   delay(2000);
   Backward();
-  delay(1500);
+  delay(500);
   Brake();
   delay(2000);
   Right();
-  delay(1500);
+  delay(500);
   Brake();
   delay(2000);
   Left();
-  delay(1500);
+  delay(500);
   while(1) {
     Brake();
   }
