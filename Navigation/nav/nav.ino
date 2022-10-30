@@ -1,5 +1,5 @@
 // Yanked from my 425 Project, changes to pin values may be needed.
-#define LMOTOR_IN1 2
+#define LMOTOR_IN1 6
 #define LMOTOR_IN2 3
 #define LMOTOR_IN3 4 // define pins, changes might be needed
 #define LMOTOR_IN4 5
@@ -18,35 +18,53 @@ void setup() {
   pinMode (RMOTOR_IN2, OUTPUT);
   pinMode (RMOTOR_IN3, OUTPUT); 
   pinMode (RMOTOR_IN4, OUTPUT);
+  Serial.begin(9600);  // limits the max amount of data that can be sent through
 
-
+  Brake();
 }
 
 void loop() { // BEFORE YOU START, PROP UP THE ROBOT OR HOLD IT BECAUSE IT WILL MOVE AFTER BRAKE COMMAND
 
   // Code below is for testing the robot's navigation and to ensure the motors are wired to the motor controllers correctly.
+/*
   Brake();
   delay(3000);
   Forward();
-  delay(500);
+  delay(1500);
   Brake();
   delay(2000);
   Backward();
-  delay(500);
+  delay(1500);
   Brake();
   delay(2000);
   Right();
-  delay(500);
+  delay(1500);
   Brake();
   delay(2000);
   Left();
-  delay(500);
+  delay(1500);
   while(1) {
     Brake();
   }
+*/
+  while(1) {
+    char varIn = Serial.read();
+    //Serial.print("Read: ");
+    //Serial.println(varIn);
+    
+    if(varIn == 'b') {
+      Backward();
+    } else if(varIn == 'f') {
+      Forward();
+    } else if(varIn == 's') {
+      Brake();
+    } else if(varIn == 'l') {
+      Left();
+    } else if(varIn == 'r') {
+      Right();
+    }
+  }
 }
-
-
 
 
 void Forward(){
