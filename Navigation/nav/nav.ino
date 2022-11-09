@@ -1,5 +1,5 @@
 #include <SoftwareSerial.h> // module for arduino to use BT
-SoftwareSerial bluetooth(10, 11); // declare bluetooth serial object, with established pins for Rx and Tx 
+SoftwareSerial bluetooth(12, 11); // declare bluetooth serial object, with established pins for Rx and Tx 
 // Yanked from my 425 Project, changes to pin values may be needed.
 #define LMOTOR_IN1 7
 #define LMOTOR_IN2 3
@@ -30,9 +30,6 @@ void loop() { // BEFORE YOU START, PROP UP THE ROBOT OR HOLD IT BECAUSE IT WILL 
 
   while(1) {
     char varIn = bluetooth.read();
-    //Serial.print("Read: ");
-    Serial.println(varIn);
-    
     if(varIn == 'b') {
       Backward();
     } else if(varIn == 'f') {
