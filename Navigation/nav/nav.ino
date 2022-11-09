@@ -1,5 +1,7 @@
+#include <SoftwareSerial.h> // module for arduino to use BT
+SoftwareSerial bluetooth(10, 11); // declare bluetooth serial object, with established pins for Rx and Tx 
 // Yanked from my 425 Project, changes to pin values may be needed.
-#define LMOTOR_IN1 6
+#define LMOTOR_IN1 7
 #define LMOTOR_IN2 3
 #define LMOTOR_IN3 4 // define pins, changes might be needed
 #define LMOTOR_IN4 5
@@ -19,38 +21,17 @@ void setup() {
   pinMode (RMOTOR_IN3, OUTPUT); 
   pinMode (RMOTOR_IN4, OUTPUT);
   Serial.begin(9600);  // limits the max amount of data that can be sent through
+  bluetooth.begin(9600);
 
   Brake();
 }
 
 void loop() { // BEFORE YOU START, PROP UP THE ROBOT OR HOLD IT BECAUSE IT WILL MOVE AFTER BRAKE COMMAND
 
-  // Code below is for testing the robot's navigation and to ensure the motors are wired to the motor controllers correctly.
-/*
-  Brake();
-  delay(3000);
-  Forward();
-  delay(1500);
-  Brake();
-  delay(2000);
-  Backward();
-  delay(1500);
-  Brake();
-  delay(2000);
-  Right();
-  delay(1500);
-  Brake();
-  delay(2000);
-  Left();
-  delay(1500);
   while(1) {
-    Brake();
-  }
-*/
-  while(1) {
-    char varIn = Serial.read();
+    char varIn = bluetooth.read();
     //Serial.print("Read: ");
-    //Serial.println(varIn);
+    Serial.println(varIn);
     
     if(varIn == 'b') {
       Backward();
