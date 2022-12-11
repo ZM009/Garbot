@@ -10,8 +10,6 @@ SoftwareSerial bluetooth(12, 13); // declare bluetooth serial object, with estab
 #define BMOTOR_IN3 25
 #define BMOTOR_IN4 24
 
-long tick = 0;
-long max_ticks = 75000;
 bool is_connected = false;
 void setup() {
   pinMode (FMOTOR_IN1, OUTPUT);
@@ -41,12 +39,6 @@ void loop() { // BEFORE YOU START, PROP UP THE ROBOT OR HOLD IT BECAUSE IT WILL 
       Left();
     } else if(varIn == 'r') {
       Right();
-    }
-
-    tick++;
-    if(tick >= max_ticks) {
-      tick = 0;
-      Brake();
     }
   }
 }
